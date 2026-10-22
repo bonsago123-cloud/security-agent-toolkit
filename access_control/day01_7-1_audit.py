@@ -15,7 +15,7 @@ for num, time, user, resource, action in LOG:
 # 3. ok 이면 allowed 를 1 늘리고, counts 의 "사용자 허용" 을 1 늘리고, 그 사용자의 역할을 role 에 담는다
     if ok:
         allowed = allowed+1
-        counts[user+"허용"] = counts.get(user+"허용",0) + 1
+        counts[user+" 허용"] = counts.get(user+" 허용",0) + 1
         role = USERS[user]["role"]
 # 4. 같은 허용 기록에서, used 에 role 이 아직 없으면 used[role] = [] 로 빈 목록을 먼저 만들고,
         if role not in used:
@@ -30,7 +30,7 @@ for num, time, user, resource, action in LOG:
         denied = denied+1
         print("[거부]",  num, time, user, resource, action, reason)
 #    counts 의 "사용자 거부" 를 1 늘린다
-        counts[user+"거부"] = counts.get(user+"거부", 0) + 1
+        counts[user+" 거부"] = counts.get(user+" 거부", 0) + 1
 print("허용", allowed, "거부", denied)                           # 전체 건수를 출력한다
 print(counts)
                                                   # 사용자별 건수를 출력한다
